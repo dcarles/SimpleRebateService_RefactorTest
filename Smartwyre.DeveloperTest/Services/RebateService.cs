@@ -1,6 +1,5 @@
 ﻿using Smartwyre.DeveloperTest.Data;
 using Smartwyre.DeveloperTest.Types;
-using System;
 
 namespace Smartwyre.DeveloperTest.Services;
 
@@ -41,6 +40,7 @@ public class RebateService : IRebateService
         var rebateAmount = rebateCalculator.Calculate();
         _rebateDataStore.StoreCalculationResult(rebate, rebateAmount);
 
+        result.Amount = rebateAmount;
         return result;
     }
 }
