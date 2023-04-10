@@ -22,7 +22,7 @@ public class AmountPerUomRebateCalculator : IRebateCalculator
             && _rebate.Incentive == IncentiveType.AmountPerUom
             && _product != null
             && _product.SupportedIncentives.HasFlag(SupportedIncentiveType.AmountPerUom)
-            && _rebate.Amount != 0           
+            && _rebate.Amount != 0
             && _request.Volume != 0;
     }
 

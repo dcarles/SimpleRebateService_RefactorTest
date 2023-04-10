@@ -1,7 +1,7 @@
-﻿using Xunit;
-using System;
+﻿using Smartwyre.DeveloperTest.Services;
 using Smartwyre.DeveloperTest.Types;
-using Smartwyre.DeveloperTest.Services;
+using System;
+using Xunit;
 
 namespace Smartwyre.DeveloperTest.Tests;
 

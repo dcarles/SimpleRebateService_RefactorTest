@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel.Client;
 using Moq;
 using Smartwyre.DeveloperTest.Data;
 using Smartwyre.DeveloperTest.Services;
@@ -14,7 +13,7 @@ public class RebateServiceTests
     private readonly Mock<IRebateDataStore> _rebateDataStoreMock;
     private readonly Mock<IProductDataStore> _productDataStoreMock;
     private readonly Mock<IRebateCalculatorFactory> _rebateCalculatorFactoryMock;
-    private readonly Mock<IRebateCalculator> _mockRebateCalculator; 
+    private readonly Mock<IRebateCalculator> _mockRebateCalculator;
 
     public RebateServiceTests()
     {
@@ -46,7 +45,7 @@ public class RebateServiceTests
         var result = service.Calculate(request);
 
         // Assert
-        result.Success.Should().BeTrue();      
+        result.Success.Should().BeTrue();
         _mockRebateCalculator.Verify(c => c.CanCalculate(), Times.Once);
         _mockRebateCalculator.Verify(c => c.Calculate(), Times.Once);
         _rebateDataStoreMock.Verify(ds => ds.StoreCalculationResult(rebate, It.IsAny<decimal>()), Times.Once);
@@ -86,7 +85,7 @@ public class RebateServiceTests
             Volume = 10
         };
         var rebate = new Rebate { Identifier = "1", Incentive = IncentiveType.FixedCashAmount, Amount = 1m };
-        Product product = null;    
+        Product product = null;
         _rebateDataStoreMock.Setup(ds => ds.GetRebate(request.RebateIdentifier)).Returns(rebate);
         _productDataStoreMock.Setup(ds => ds.GetProduct(request.ProductIdentifier)).Returns(product);
         var service = new RebateService(_rebateDataStoreMock.Object, _productDataStoreMock.Object, _rebateCalculatorFactoryMock.Object);

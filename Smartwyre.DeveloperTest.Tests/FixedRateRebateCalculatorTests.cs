@@ -101,7 +101,7 @@ public class FixedRateRebateCalculatorTests
         var canCalculate = calculator.CanCalculate();
 
         // Assert
-        canCalculate.Should().BeFalse();      
+        canCalculate.Should().BeFalse();
     }
 
     [Theory]
@@ -121,7 +121,7 @@ public class FixedRateRebateCalculatorTests
         var result = calculator.CanCalculate();
 
         // Assert
-        result.Should().Be(expectedResult);    
+        result.Should().Be(expectedResult);
     }
 
     [Theory]

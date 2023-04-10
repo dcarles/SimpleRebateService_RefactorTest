@@ -95,7 +95,7 @@ public class FixedCashAmountRebateCalculatorTests
         var canCalculate = calculator.CanCalculate();
 
         // Assert
-        canCalculate.Should().BeFalse();      
+        canCalculate.Should().BeFalse();
     }
 
     [Theory]
@@ -112,15 +112,15 @@ public class FixedCashAmountRebateCalculatorTests
         var result = calculator.CanCalculate();
 
         // Assert
-        result.Should().Be(expectedResult);    
+        result.Should().Be(expectedResult);
     }
 
-  [Fact]
+    [Fact]
     public void Calculate_ThrowsException_WhenCannotCalculate()
     {
         // Arrange
         var rebate = new Rebate { Incentive = IncentiveType.FixedCashAmount, Amount = 0 };
-        var product = new Product { SupportedIncentives = SupportedIncentiveType.FixedCashAmount };    
+        var product = new Product { SupportedIncentives = SupportedIncentiveType.FixedCashAmount };
         var calculator = new FixedCashAmountRebateCalculator(rebate, product);
 
         // Act & Assert
